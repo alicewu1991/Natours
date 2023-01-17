@@ -1,0 +1,16 @@
+// 這邊是給GRID的表格用
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// 這邊是給BOOKNOW的頁面用
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

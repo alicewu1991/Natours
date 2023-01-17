@@ -1,0 +1,44 @@
+/* 先選顏色的線性漸變打完,逗號在選背景圖片
+選完顏色改透明度 選擇編號完左邊出現色表改成ＲＧＢＡ最後一個改透明度0.8*/
+// rgba前面三個顏色改成$color-primary-light字
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../css/img/hero.jpeg");
+  background-size: cover;
+  background-position: top;
+  /* 這裡指的相對位置是因為ＬＯＧＯＢＯＸ */
+  position: relative;
+
+  /* 剪輯路徑：多邊形 順時針開始 上右下左 Ｘ橫向Ｙ直向*/
+  /* clip-path: polygon(x y,x y,x y,x y); */
+  /* 不更動左上第一位置ＸＹ就是 0 0
+    不更動右上第二位置ＸＹ是100%到0,100%指的是 
+    從第一個位置開始到第二要％（Ｘ左到右的離左邊有多遠？）
+
+    不更動右下位置橫向Ｘ,更動Ｙ（上到下的離上有多遠？）不更動左下第四ＸＹ就
+  WebKit 是一个跨平台的网络浏览器引擎,在 iOS 和 macOS 上，它支持 Safari、Mail、iBooks 和许多其他应用程序。 */
+  -wenbkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  // &取代打header
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+  &__logo {
+    height: 3.5rem;
+  }
+  //* text-box 把主標跟副標匡起來置中 *//* 這裡文本匡至中是btn:link *//*
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
